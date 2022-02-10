@@ -1,5 +1,5 @@
 # sapient-training
 
-**npm init **
+# npm init 
 
-**npm run start:dev**
+# npm run start:dev
