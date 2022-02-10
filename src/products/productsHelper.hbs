@@ -1,0 +1,15 @@
+<div class="flex-container">
+      {{#each products  }}
+      <div class="flex-item">
+            <h4 class="title">{{{this.name}}}</h4>
+            <img src="{{this.imageURL}}">
+            <div class="description">
+                <p>{{{this.description}}}</p>
+            </div>
+            <div class="product_footer">
+                <p>Rs.{{{this.price}}}</p>
+                <button class="button" data-item="{{this.id}}">Buy Now</button>
+            </div>
+      </div>
+      {{/each}}
+</div>

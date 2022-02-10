@@ -1,0 +1,14 @@
+<div class="categories-container">
+    {{#each categories }}
+    <div class="categories-item">
+        <div class="col">
+             <img src="{{this.imageUrl}}">
+        </div>
+         <div class="col">
+             <h4>{{this.name}}</h4>
+             <p>{{this.description}}</p>
+             <button class="button product-categories-btn"  data-key= "{{this.key}}">Explore {{this.key}}</button>
+        </div>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,19 @@
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.body-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.maincontainer{
+    min-height: calc(100vh - 128px);
+
+}
+.maincontainer-wrapper{
+    display: flex;
+    height: 100%;
+}

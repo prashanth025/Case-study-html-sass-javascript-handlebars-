@@ -1,0 +1,34 @@
+.cmp-product-categories{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .categories-container{
+        .categories-item{
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+            box-shadow: 0 5px 6px -6px #777;
+            .col{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                img{
+                    max-width: 50%;
+                }
+                p{
+                    margin-top: 5px;
+                    margin-bottom: 25px;
+                    color: #868686;
+                    text-align: center;
+                }
+            }
+            &:nth-child(even){
+                flex-direction: row-reverse;
+            }
+            &:last-child{
+                box-shadow: none;
+            }
+        }
+    }
+}

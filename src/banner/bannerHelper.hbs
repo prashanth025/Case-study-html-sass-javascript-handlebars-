@@ -1,0 +1,14 @@
+<div class="flex-container">
+    {{#each banners }}
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="{{this.bannerImageUrl}}" style="width:100%">
+        </div>
+    </div>
+    {{/each}}
+    <div style="text-align:center">
+        {{#each banners }}
+        <span class="dot" data-index="{{this.order}}"></span>
+        {{/each}}
+    </div>
+</div>

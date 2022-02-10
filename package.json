@@ -1,0 +1,47 @@
+{
+  "name": "shopping-cart-assignment-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start:dev": "webpack-dev-server",
+    "clean": "rd /s /q dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "sass-to-string": "^1.6.2",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "axios": "^0.25.0",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "normalize.css": "^8.0.1",
+    "style-loader": "^3.3.1"
+  }
+}

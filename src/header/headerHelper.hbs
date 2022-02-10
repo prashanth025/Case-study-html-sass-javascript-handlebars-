@@ -1,0 +1,28 @@
+
+
+<div class="container cmp-header_container">
+  <div class="cmp-header_logo">
+    <img src="{{headerLogo}}">
+  </div>
+  <nav class="nav-items">
+    <ul>
+      {{#each menuItems}}
+      <li><a href="{{this.link}}">{{{this.title}}}</a></li>
+      {{/each}}
+    </ul>
+  </nav>
+
+  <div class="cmp-header_right-section">
+    <nav>
+      <ul class="signIn">
+        <li><a href="/login.html">Signin</a></li>
+        <li><a href="/register.html">Register</a></li>
+      </ul>
+    </nav>
+    <div class="cart-section">
+      <div class="cart-Items">
+        <img src="{{cartIcon}}">{{itemsCount}} items
+      </div>
+    </div>
+  </div>
+</div>
