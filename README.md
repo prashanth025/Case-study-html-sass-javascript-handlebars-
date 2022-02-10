@@ -1,4 +1,4 @@
 # sapient-training
 
-npm init 
-npm run start:dev
+#npm init 
+#npm run start:dev
