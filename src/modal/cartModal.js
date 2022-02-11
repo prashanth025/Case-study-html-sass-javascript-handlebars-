@@ -1,4 +1,5 @@
-import cartListHelper from './cartListHelper.hbs'
+import cartListHelper from './cartListHelper.hbs';
+
 
 (function () {
     'use strict'
@@ -7,15 +8,14 @@ import cartListHelper from './cartListHelper.hbs'
     const createCartlistModalHtml = () => {
         let cartsContainer = document.getElementById('cart-items-modal');
         let cartBtn = document.querySelectorAll('.cart-Items');
-        
+
         if (cartsContainer) {
-            let modal, cloaseBtn, res;
+            let modal, cloaseBtn;
             cartBtn.forEach(element => {
                 element.addEventListener('click', function () {
                     const cartListItems = [];
-                    console.log("this", this);
                     let cartListObject = {
-                        cartListItems: cartListItems
+                        cartListItems: cartListItems,
                     };
                     let productIDs = JSON.parse(localStorage.getItem("products") || "[]");
                     import('../../server/products/index.get.json')
@@ -29,13 +29,14 @@ import cartListHelper from './cartListHelper.hbs'
                                 });
                             }
                             cartListObject.cartListItems = cartListItems;
+                            cartListObject.totalAmount = getTotalAmount(cartListItems);
                             cartsContainer.innerHTML = cartListHelper(cartListObject);
                             modal = document.getElementById("modal");
                             modal.style.display = "block";
-                            cartsContainer.querySelectorAll('.counter').forEach(function(element){
-                                console.log("this", this)
-                                element.addEventListener('click', counter);
-                            });
+                            let elmt = cartsContainer.querySelectorAll('.counter');
+                            for (let i = 0; i < elmt.length; i++) {
+                                elmt[i].addEventListener('click', counter.bind(elmt[i]));
+                            }
                             cloaseBtn = modal.querySelector(".close");
                             cloaseBtn.addEventListener('click', cloaseModal)
 
@@ -44,12 +45,30 @@ import cartListHelper from './cartListHelper.hbs'
                 })
             });
             const cloaseModal = () => {
-                console.log(this);
-
                 modal.style.display = "none";
             }
-            const counter = (e) => {
-                console.log(e);
+            const getTotalAmount = (cartItems) => {
+                let initialValue = 0;
+                let sumAmount = cartItems.reduce(
+                    (previousValue, currentValue) => previousValue + currentValue.price
+                    , initialValue
+                )
+                return sumAmount;
+            }
+
+            let itemCount = 1;
+            function counter() {
+
+                let cartItemElement = this.closest('.cart-item');
+                let clickedEvent = this.getAttribute('data-event');
+                if (clickedEvent == 'sub') {
+                    (itemCount == 1) ? (itemCount = 1) : itemCount--;
+                } else {
+                    itemCount++
+                }
+                let itemAmt = itemCount * Number(this.getAttribute('data-item-price'));
+                cartItemElement.querySelector('.cart-item-amt').innerHTML = 'Rs.' + ((itemAmt < 0) ? 0 : itemAmt);
+
             }
         }
     }

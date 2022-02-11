@@ -5,6 +5,7 @@ import cartIcon from '../images/cart.svg';
 
 (function(){
   'use strict'
+  let cartCount =   JSON.parse(localStorage.getItem("products") || "[]")
   
   const headerObject = {
     headerLogo:logo,
@@ -20,7 +21,7 @@ import cartIcon from '../images/cart.svg';
         link:"/products.html"
       }
     ],
-    itemsCount:4
+    itemsCount:cartCount.length
   }
 
   function createHeaderHTML() {

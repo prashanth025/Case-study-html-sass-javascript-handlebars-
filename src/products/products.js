@@ -19,9 +19,15 @@ import productsTemplate from './productsHelper.hbs';
         const allCategories = sideNav.querySelectorAll("ul li");
 
         for (let i = 0; i < allCategories.length; i++) {
-            allCategories[i].addEventListener('click', function () {
-
+            allCategories[i].addEventListener('click', function (e) {
                 let itemId = this.getAttribute('data-item');
+                for (let i = 0; i < allCategories.length; i++) {
+                    allCategories[i].classList.remove('active');
+                }
+                
+                if(allCategories[i] == e.target){
+                    this.classList.add('active');
+                }
                 categories.find(function (item, index) {
                     if (item.id === itemId) {
                         history.pushState(item, item.key, "?page=" + item.key);
@@ -50,8 +56,9 @@ import productsTemplate from './productsHelper.hbs';
             element.addEventListener('click', function(){
                 let productId =  this.getAttribute('data-item');
                 let cartItems = JSON.parse(localStorage.getItem("products") || "[]");
-                cartItems.push(productId);
-                localStorage.setItem('products', JSON.stringify(cartItems));
+                let cartSet = new Set(cartItems);
+                cartSet.add(productId);
+                localStorage.setItem('products', JSON.stringify(Array.from(cartSet)));
 
 
             })
