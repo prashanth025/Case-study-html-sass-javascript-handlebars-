@@ -1,4 +1,3 @@
-# sapient-training
 
 # npm init 
 
